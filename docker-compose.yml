@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+
+  social:
+    container_name: social_app
+    tty: true
+    stdin_open: true
+    image: ruby:2.6
+    volumes:
+      - ./:/data:delegated
+    working_dir: /data  
+    networks:
+      - social
+
+volumes:
+  ? social
+
+networks:
+  social:
+    name: social
